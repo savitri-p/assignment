@@ -1,0 +1,18 @@
+
+.content-wrap {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto; 
+  padding: 15px;
+}
+
+.inbox-header {
+  h2 {font-size: 1.1rem;}
+  padding: 20px;
+}
+
+.two-col {
+  display: flex;
+  flex: 0 0 auto;
+  background:red;
+}

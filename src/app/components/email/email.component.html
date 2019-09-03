@@ -1,0 +1,28 @@
+<div [ngClass]="setClasses()">
+    <div class=""></div>
+    <div class="">
+      <div class="first-row">
+          <span class="sss">{{ email.from.name }}</span>
+          <div class="icons"></div>
+      </div>  
+      <div class="two-col">
+        <span class="">{{ email.subject }}</span>
+        <span class="showDate">{{ email.mailingdate }}</span>
+      </div>    
+      <p class="">{{ email.body }}</p>
+    </div>
+  
+    <!-- <p>
+      <input
+        (change)="onToggle(todo)"
+        type="checkbox"
+        id="{{ todo.id }}"
+        [checked]="todo.completed"
+      />
+      <label for="{{ todo.id }}">
+        {{ todo.title }}
+      </label>
+      <button (click)="onDelete(todo)" class="del">X</button>
+    </p> -->
+  </div>
+  
