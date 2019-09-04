@@ -9,6 +9,7 @@ import { Email } from '../models/Email.model';
 })
 export class EmailComponent implements OnInit {
   @Input('message') email: Email;
+  initName = '';
 
   constructor() { }
 
@@ -18,6 +19,13 @@ export class EmailComponent implements OnInit {
 
   // Set Dynamic Classes
   setClasses() {
+    let classes = {
+
+    }
+    return classes;
+  }
+
+  setBgcolor() {
     let classes = {
 
     }

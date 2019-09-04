@@ -1,28 +1,20 @@
-<div [ngClass]="setClasses()">
-    <div class=""><img [src]="email.from.avatar" alt=""></div>
-    <div class="">
-      <div class="first-row">
-          <span class="sss">{{ email.from.name }}</span>
-          <div class="icons"></div>
-      </div>  
-      <div class="two-col">
-        <span class="">{{ email.subject }}</span>
-        <span class="showDate">{{ email.mailingdate }}</span>
-      </div>    
-      <p class="">{{ email.body }}</p>
-    </div>
-  
-    <!-- <p>
-      <input
-        (change)="onToggle(todo)"
-        type="checkbox"
-        id="{{ todo.id }}"
-        [checked]="todo.completed"
-      />
-      <label for="{{ todo.id }}">
-        {{ todo.title }}
-      </label>
-      <button (click)="onDelete(todo)" class="del">X</button>
-    </p> -->
+<div class="content-three-col email-item" [ngClass]="setClasses()">
+  <div class="first-col">
+    <div class="avatar-wrap" [ngClass]="setBgcolor()">
+      <div class="img-wrap"><img *ngIf="email.from.avatar != ''" class="avatar" [src]="email.from.avatar" alt="{{ email.from.name }}"></div>
+      <span class="avatar-name">{{initName}}</span>
   </div>
-  
+      <span class="email-select"></span>
+    </div>
+    <div class="second-col">
+      <div class="content-row">
+        <span class="sss">{{ email.from.name }}</span>
+        <div class="second-col-right icons"></div>
+      </div>
+      <div class="content-row">
+        <span class="">{{ email.subject }}</span>
+        <span class="second-col-right showDate">{{ email.mailingdate }}</span>
+      </div>
+      <div class="content-row">{{ email.body }}</div>
+    </div>
+  </div>

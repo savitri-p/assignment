@@ -1,9 +1,16 @@
+$maxContentWidth: 1366px;
+$stdSidePadding: 15px;
 
 .content-wrap {
   width: 100%;
-  max-width: 1366px;
+  max-width: $maxContentWidth;
   margin: 0 auto; 
-  padding: 15px;
+  padding-left: $stdSidePadding;
+  padding-right: $stdSidePadding;
+  .content-row {
+  	  margin-right: -$stdSidePadding;
+  			margin-left: -$stdSidePadding;
+  }
 }
 
 .inbox-header {
@@ -11,7 +18,21 @@
   padding: 20px;
 }
 
-.two-col {
+.content-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 0 0 auto;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
+.content-two-col {
+		display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+
+
