@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { EmailsService } from '../email.service';
+import * as moment from 'moment/moment';
 
 import { Email } from '../models/Email.model';
 
@@ -10,12 +12,31 @@ import { Email } from '../models/Email.model';
 export class EmailComponent implements OnInit {
   @Input('message') email: Email;
   initName = '';
+  today = moment();
+  mailingDate: Date;
+  iscurrentDate:boolean;
+  date: number;
 
   constructor() { }
-
+  
   ngOnInit() {
+    this.initName = this.setShortName(this.email);
+    this.iscurrentDate = moment(this.email.mailingdate).isSame(moment(), 'day');
   }
 
+  setShortName(email:Email) {
+    const nameArray = this.email.from.name.trim().split(' ');
+    let name = nameArray[0].charAt(0).toUpperCase();
+
+    const isAllCap = nameArray[0].split('').every(el => {
+      return el === el.toUpperCase();
+    });
+
+    if (!isAllCap && nameArray.length > 1) {
+      name = name.concat(nameArray[1].charAt(0)).toUpperCase();
+    }  
+    return name;
+  }
 
   // Set Dynamic Classes
   setClasses() {
@@ -26,10 +47,8 @@ export class EmailComponent implements OnInit {
   }
 
   setBgcolor() {
-    let classes = {
-
-    }
-    return classes;
+    let bgColorId = 'avatar-' + this.email.email_id;
+    return bgColorId;
   }
 
 }

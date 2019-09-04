@@ -1,19 +1,19 @@
-<div class="content-three-col email-item" [ngClass]="setClasses()">
-  <div class="first-col">
+<div class="content-two-col email-item" [ngClass]="setClasses()">
+  <div class="content-col first-col">
     <div class="avatar-wrap" [ngClass]="setBgcolor()">
       <div class="img-wrap"><img *ngIf="email.from.avatar != ''" class="avatar" [src]="email.from.avatar" alt="{{ email.from.name }}"></div>
       <span class="avatar-name">{{initName}}</span>
   </div>
       <span class="email-select"></span>
     </div>
-    <div class="second-col">
+    <div class="content-col second-col">
       <div class="content-row">
-        <span class="sss">{{ email.from.name }}</span>
+        <span class="from-name">{{ email.from.name }}</span>
         <div class="second-col-right icons"></div>
       </div>
       <div class="content-row">
         <span class="">{{ email.subject }}</span>
-        <span class="second-col-right showDate">{{ email.mailingdate }}</span>
+        <span class="second-col-right showDate">{{ iscurrentDate ? (email.mailingdate | amDateFormat: 'HH:mm') : (email.mailingdate | amDateFormat: 'ddd M/D')}}</span>
       </div>
       <div class="content-row">{{ email.body }}</div>
     </div>
