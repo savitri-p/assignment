@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Assignment Description
 Develop a reusable component that display email inbox. This component requests data from a configured endpoint and display as a scrollable list. The data format returned by the endpoint defined as an provided screenshot.
 
-## Github Page
+## Demo on Github Page
 [https://savitri-p.github.io/assignment/](https://savitri-p.github.io/assignment/)
 
 ## Quick Start
