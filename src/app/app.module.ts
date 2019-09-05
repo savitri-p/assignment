@@ -10,6 +10,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { EmailsComponent } from './inbox/emails/emails.component';
 import { EmailComponent } from './inbox/email/email.component';
 import { HoverClassDirective } from './directive/hover-class/hover-class.directive';
+import { DropdownDirective } from './directive/dropdown/dropdown.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HoverClassDirective } from './directive/hover-class/hover-class.directi
     InboxComponent,
     EmailsComponent,
     EmailComponent,
-    HoverClassDirective
+    HoverClassDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
