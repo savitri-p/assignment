@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailsService } from '../email.service';
+import { FirebaseService } from '../firebase.service';
 import { Email } from '../models/Email.model';
 
 @Component({
   selector: 'app-emails',
   templateUrl: './emails.component.html',
-  styleUrls: ['./emails.component.scss'],
-  providers: [EmailsService]
+  styleUrls: ['./emails.component.scss']
 })
 export class EmailsComponent implements OnInit {
   emails:Email[];
 
-  constructor(private emailsService: EmailsService) { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this.emails = this.emailsService.emails;
-    
-  }
+    this.firebaseService.fetchEmails().subscribe(emails => {
+      this.emails = emails;
+    });      
+  } 
 
 }

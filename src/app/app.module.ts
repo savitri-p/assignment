@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { MomentModule } from 'ngx-moment';
 //import { AngularFireModule } from '@angular/fire';
 
@@ -22,6 +23,7 @@ import { HoverClassDirective } from './inbox/directive/hover-class/hover-class.d
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MomentModule
     //AngularFireModule.initializeApp(environment.firebase)

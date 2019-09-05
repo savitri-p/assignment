@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EmailsService } from '../email.service';
 import * as moment from 'moment/moment';
 
+//import { EmailsService } from '../email.service';
+import { FirebaseService } from '../firebase.service';
 import { Email } from '../models/Email.model';
 
 @Component({
