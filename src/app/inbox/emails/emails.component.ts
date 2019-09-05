@@ -9,12 +9,16 @@ import { Email } from '../models/Email.model';
 })
 export class EmailsComponent implements OnInit {
   emails:Email[];
+  error = null;
 
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
     this.firebaseService.fetchEmails().subscribe(emails => {
       this.emails = emails;
+    },
+    error => {
+      this.error = "Something went wrong, please try again later.";
     });      
   } 
 

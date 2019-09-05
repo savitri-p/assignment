@@ -2,4 +2,7 @@
   *ngFor="let message of emails" 
   [message] = message
   >
+  
 </app-email>
+<div  class="error-msg" *ngIf=error>{{ error }}</div>
+
