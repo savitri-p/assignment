@@ -1,4 +1,4 @@
-$maxContentWidth: 1366px;
+$maxContentWidth: 1024px;
 $stdSidePadding: 10px;
 $firstColSize: 40px;
 $filterColor: #6C5FCA;
@@ -58,10 +58,13 @@ $filterColor: #6C5FCA;
     max-width: $firstColSize;
   }
   .second-col {
-    -webkit-box-flex: 0;
+    /* -webkit-box-flex: 0;
     -ms-flex: 1 0 calc(100% - $firstColSize);
     flex: 1 0 calc(100% - $firstColSize);
-    max-width: calc(100% - $firstColSize);
+    max-width: calc(100% - $firstColSize); */
+    /* -webkit-box-flex: 0;
+    -ms-flex: 1;
+    flex: 1; */
   }
 }
 

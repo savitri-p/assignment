@@ -20,10 +20,15 @@ export class EmailComponent implements OnInit {
   constructor() { }
   
   ngOnInit() {
-    this.initName = this.setShortName(this.email);
+    // handler empty name => display Email instead
+    if (this.email.from.name === '') this.email.from.name = this.email.from.email;
+    // Set character to display as avatar when avatar is empty
+    if (this.email.from.avatar === '' ) this.initName = this.setShortName(this.email); 
+    // Handle Date Display
     this.iscurrentDate = moment(this.email.mailingdate).isSame(moment(), 'day');
   }
 
+  
   setShortName(email:Email) {
     const nameArray = this.email.from.name.trim().split(' ');
     let name = nameArray[0].charAt(0).toUpperCase();
@@ -38,17 +43,14 @@ export class EmailComponent implements OnInit {
     return name;
   }
 
-  // Set Dynamic Classes
-  setClasses() {
-    let classes = {
-
-    }
-    return classes;
-  }
-
+  // Set Dynamic Classes for Avatar Background color
   setBgcolor() {
     let bgColorId = 'avatar-' + this.email.email_id;
     return bgColorId;
+  }
+
+  onClickEmailItem() {
+    this.email.read_status = true;
   }
 
 }

@@ -12,4 +12,5 @@ export class Email {
   flag: boolean;  
   read_status: boolean;  
   pin: boolean;
+  important: boolean;
 }
