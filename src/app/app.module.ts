@@ -8,14 +8,17 @@ import { AppComponent } from './app.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { EmailsComponent } from './inbox/emails/emails.component';
 import { EmailComponent } from './inbox/email/email.component';
-import { environment } from '../environments/environment';
+//import { environment } from '../environments/environment';
+import { HoverClassDirective } from './inbox/directive/hover-class/hover-class.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     InboxComponent,
     EmailsComponent,
-    EmailComponent
+    EmailComponent,
+    HoverClassDirective
   ],
   imports: [
     BrowserModule,
