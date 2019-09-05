@@ -81,4 +81,9 @@ export class EmailComponent implements OnInit {
     email.pin = !email.pin;
   }
 
+  // Select Email
+  onSelectedEmailItem(email) {
+
+  }
+
 }
