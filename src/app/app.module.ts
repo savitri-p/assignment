@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MomentModule } from 'ngx-moment';
-//import { AngularFireModule } from '@angular/fire';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +24,8 @@ import { HoverClassDirective } from './directive/hover-class/hover-class.directi
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MomentModule
+    MomentModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

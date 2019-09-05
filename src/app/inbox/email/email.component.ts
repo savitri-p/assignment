@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment/moment';
 
-//import { EmailsService } from '../email.service';
-import { FirebaseService } from '../firebase.service';
 import { Email } from '../models/Email.model';
+import { faFlag, faTrashAlt, faThumbtack, faEnvelope, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-email',
@@ -17,6 +16,11 @@ export class EmailComponent implements OnInit {
   mailingDate: Date;
   iscurrentDate:boolean;
   date: number;
+  faFlag = faFlag;
+  faTrashAlt = faTrashAlt;
+  faThumbtack = faThumbtack; 
+  faEnvelope = faEnvelope;
+  faEnvelopeOpen = faEnvelopeOpen;
 
   constructor() { }
   
@@ -52,8 +56,29 @@ export class EmailComponent implements OnInit {
     return bgColorId;
   }
 
+  // Mark as read
   onClickEmailItem() {
     this.email.read_status = true;
+  }
+
+  // Delete Email
+  onDeleteEmail(email:Email) {
+  
+  }
+
+  // Togggle Read Status
+  toggleReadStatus(email) {
+    email.read_status = !email.read_status;
+  }
+
+  // Flag this email
+  onFlagEmail(email) {
+    email.flag = !email.flag;
+  }
+
+  // Pin email to the top
+  onPinEmail(email) {
+    email.pin = !email.pin;
   }
 
 }
