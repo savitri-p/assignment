@@ -13,20 +13,8 @@ export class FirebaseService {
 
   constructor(private http:HttpClient) { }
 
-  fetchEmails() {
-    return this.http
-      .get<{ [key: string]: Email }>(this.emailUrl)
-      .pipe(
-        map(responseData => {
-          const emailsArray = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              emailsArray.push( responseData[key] );
-            }
-          }
-
-          return emailsArray;
-        })
-      );
+  fetchEmails():Observable<Email[]> {
+    return this.http.get<Email[]>(this.emailUrl);
   }
+  
 }
