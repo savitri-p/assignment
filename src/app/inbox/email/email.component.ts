@@ -22,9 +22,11 @@ export class EmailComponent implements OnInit {
   
   ngOnInit() {
     // handler empty name => display Email instead
-    if (this.email.from.name === '') this.email.from.name = this.email.from.email;
+    if (this.email.from.name.trim() === '') this.email.from.name = this.email.from.email;
     // Set character to display as avatar when avatar is empty
     if (this.email.from.avatar === '' ) this.initName = this.setShortName(this.email); 
+    // Handle when email has no subject
+    if (this.email.subject.trim() === '' ) this.email.subject = "(no subject)";
     // Handle Date Display
     this.iscurrentDate = moment(this.email.mailingdate).isSame(moment(), 'day');
   }
