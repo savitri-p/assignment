@@ -9,8 +9,8 @@ export class Email {
   body: string;
   mailingdate: string;
   attachment: string;
-  flag: boolean;  
-  read_status: boolean;  
-  pin: boolean;
-  important: boolean;
+  flag = false;  
+  read_status = false;  
+  pin = false;
+  important = false;
 }
