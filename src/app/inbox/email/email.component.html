@@ -1,12 +1,13 @@
-<div class="content-two-col email-item" appHoverClass="hover" [ngClass]="{unread: !email.read_status}" (click)="onClickEmailItem()">
+<div class="content-two-col email-item" appHoverClass="hover"
+  [ngClass]="{unread: !email.read_status, 'selected': email.selected}" (click)="onClickEmailItem()">
   <div class="content-col first-col">
-    <div class="avatar-wrap" [ngClass]="setBgcolor()">
+    <div class="avatar-wrap" [ngClass]="setBgcolor()" *ngIf="!showCheckboxs">
       <div class="img-wrap"><img *ngIf="email.from.avatar != ''" class="avatar" [src]="email.from.avatar"
           alt="{{ email.from.name }}"></div>
       <span class="avatar-name">{{initName}}</span>
     </div>
-    <div class="email-item-select" appHoverClass="hover-tick">
-      <span class="email-select" (click)="onSelectedEmailItem(email)"></span>
+    <div class="email-item-select checkbox-wrap" appHoverClass="hover-tick" [ngClass]="{'selected': email.selected}">
+      <span class="checkbox" (click)="onSelectedEmailItem(email)"></span>
     </div>
   </div>
   <div class="content-col second-col">

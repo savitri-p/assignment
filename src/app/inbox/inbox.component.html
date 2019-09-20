@@ -1,10 +1,22 @@
 <div class="content-wrap">
   <div class="inbox-header">
     <div class="content-two-col">
-      <div class="content-col first-col"> </div>
+      <div class="content-col first-col">
+        <div class="all-emails-selected checkbox-wrap" appHoverClass="hover-tick"
+          [ngClass]="{'selected': isAllChecked}">
+          <span class="checkbox all-emails-selected" (click)="selectAllEmails()"></span>
+        </div>
+      </div>
       <div class="content-col second-col">
         <h2>Inbox</h2>
-        <div class="second-col-right txt-filter"> Filter <span class="arrow-down"></span></div>
+        <div class="second-col-right dropdown" appDropdown>
+          <span class="txt-filter" appHoverClass="hover">Filter <span class="arrow-down"></span></span>
+          <ul class="dropdown-menu">
+            <li (click)="showAllEmails()">All</li>
+            <li (click)="showUnreadEmails()">Unread</li>
+            <li (click)="showFlaggedEmails()">Flagged</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

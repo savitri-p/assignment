@@ -9,10 +9,28 @@ import { FirebaseService } from './firebase.service';
   providers: [FirebaseService]
 })
 export class InboxComponent implements OnInit {
+  isAllChecked: boolean;
 
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+  }
+
+  selectAllEmails() {
+    this.firebaseService.toggleSelectedAllEmails();
+    this.isAllChecked = this.firebaseService.isAllChecked;
+  }
+
+  showAllEmails() {
+    this.firebaseService.showAllEmails();
+  }
+
+  showUnreadEmails() {
+    this.firebaseService.showUnreadEmails();
+  }
+
+  showFlaggedEmails() {
+    this.firebaseService.showFlaggedEmails();
   }
 
 }

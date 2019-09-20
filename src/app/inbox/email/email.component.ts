@@ -3,6 +3,7 @@ import * as moment from 'moment/moment';
 
 import { Email } from '../models/Email.model';
 import { faFlag, faTrashAlt, faThumbtack, faEnvelope, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-email',
@@ -21,8 +22,11 @@ export class EmailComponent implements OnInit {
   faThumbtack = faThumbtack; 
   faEnvelope = faEnvelope;
   faEnvelopeOpen = faEnvelopeOpen;
+  showCheckboxs = false;
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { 
+    this.firebaseService.showCheckboxs.subscribe(isShow => this.showCheckboxs = isShow);
+  }
   
   ngOnInit() {
     // handler empty name => display Email instead
