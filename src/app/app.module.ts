@@ -12,6 +12,8 @@ import { EmailComponent } from './inbox/email/email.component';
 import { HoverClassDirective } from './directive/hover-class/hover-class.directive';
 import { DropdownDirective } from './directive/dropdown/dropdown.directive';
 
+import { SortPipe } from './sort.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DropdownDirective } from './directive/dropdown/dropdown.directive';
     EmailsComponent,
     EmailComponent,
     HoverClassDirective,
-    DropdownDirective
+    DropdownDirective, 
+    SortPipe
   ],
   imports: [
     BrowserModule,

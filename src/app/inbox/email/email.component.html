@@ -1,23 +1,29 @@
 <div class="content-two-col email-item" appHoverClass="hover"
-  [ngClass]="{unread: !email.read_status, 'selected': email.selected}" (click)="onClickEmailItem()">
+  [ngClass]="{'unread': !email.read_status, 'selected': email.selected, 'flagged': email.flag}"
+  (click)="email.read_status = true">
   <div class="content-col first-col">
     <div class="avatar-wrap" [ngClass]="setBgcolor()" *ngIf="!showCheckboxs">
       <div class="img-wrap"><img *ngIf="email.from.avatar != ''" class="avatar" [src]="email.from.avatar"
           alt="{{ email.from.name }}"></div>
       <span class="avatar-name">{{initName}}</span>
     </div>
-    <div class="email-item-select checkbox-wrap" appHoverClass="hover-tick" [ngClass]="{'selected': email.selected}">
-      <span class="checkbox" (click)="onSelectedEmailItem(email)"></span>
+    <div class="email-item-select checkbox-wrap" appHoverClass="hover-tick"
+      [ngClass]="{'selected': email.selected}">
+      <span class="checkbox" (click)="toggleSelected(email);$event.stopPropagation()"></span>
     </div>
   </div>
   <div class="content-col second-col">
     <div class="content-row">
       <span class="from-name">{{ email.from.name }}</span>
       <div class="second-col-right activity-icons">
-        <fa-icon [icon]="faTrashAlt" (click)="onDeleteEmail(email); $event.stopPropagation()" ></fa-icon>        
-        <fa-icon [icon]="faEnvelope" (click)="toggleReadStatus(email);$event.stopPropagation()"></fa-icon>
-        <fa-icon [icon]="faFlag" (click)="onFlagEmail(email);$event.stopPropagation()"></fa-icon>
-        <fa-icon [icon]="faThumbtack" (click)="onPinEmail(email);$event.stopPropagation()"></fa-icon>
+        <fa-icon [icon]="faTrashAlt" (click)="deleteEmail(email); $event.stopPropagation()"></fa-icon>
+        <fa-icon [icon]="faEnvelope" *ngIf="!email.read_status; else openEnvelope" (click)="toggleReadStatus(email);$event.stopPropagation()"></fa-icon>
+        <ng-template #openEnvelope>
+          <fa-icon [icon]="faEnvelopeOpen" (click)="toggleReadStatus(email);$event.stopPropagation()">
+          </fa-icon>
+        </ng-template>        
+        <fa-icon [icon]="faFlag" [ngClass]="{'flagged': email.flag}" (click)="flagEmail(email);$event.stopPropagation()"></fa-icon>
+        <fa-icon [icon]="faThumbtack" [ngClass]="{'pin': email.pin}" (click)="pinEmail(email);$event.stopPropagation()"></fa-icon>
       </div>
     </div>
     <div class="content-row">

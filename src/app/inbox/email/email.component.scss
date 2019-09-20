@@ -113,6 +113,14 @@ $unreadTxtColor: #6c5fca;
       color: red;
       visibility: visible;
     }
+
+    &.pin {
+      color: $unreadTxtColor;          
+      visibility: visible;
+      svg {
+        transform: rotate(45deg) !important;
+      }
+    }
   }
 }
 

@@ -10,8 +10,9 @@ import { FirebaseService } from '../firebase.service';
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss']
 })
-export class EmailComponent implements OnInit {
+export class EmailComponent implements OnInit  {
   @Input('message') email: Email;
+
   initName = '';
   today = moment();
   mailingDate: Date;
@@ -38,7 +39,6 @@ export class EmailComponent implements OnInit {
     // Handle Date Display
     this.iscurrentDate = moment(this.email.mailingdate).isSame(moment(), 'day');
   }
-
   
   setShortName(email:Email) {
     const nameArray = this.email.from.name.trim().split(' ');
@@ -61,33 +61,34 @@ export class EmailComponent implements OnInit {
   }
 
   // Mark as read
-  onClickEmailItem() {
+  updateReadStatus() {
     this.email.read_status = true;
   }
 
   // Delete Email
-  onDeleteEmail(email:Email) {
-  
+  deleteEmail(email:Email) {
+    this.firebaseService.deleteEmail(email);
   }
 
   // Togggle Read Status
-  toggleReadStatus(email) {
+  toggleReadStatus(email: Email) {
     email.read_status = !email.read_status;
   }
 
   // Flag this email
-  onFlagEmail(email) {
+  flagEmail(email: Email) {
+    console.log("flagEmail");
     email.flag = !email.flag;
   }
 
   // Pin email to the top
-  onPinEmail(email) {
-    email.pin = !email.pin;
+  pinEmail(email: Email) {    
+    this.firebaseService.pinEmail(email);
   }
 
   // Select Email
-  onSelectedEmailItem(email) {
-
+  toggleSelected(email:Email) {
+    this.firebaseService.toggleSelectedEmail(email);
   }
 
 }
